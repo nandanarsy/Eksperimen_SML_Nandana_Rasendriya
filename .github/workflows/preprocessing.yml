@@ -25,6 +25,12 @@ jobs:
     - name: Run preprocessing
       run: python preprocessing/automate_Nandana_Rasendriya.py
 
+    - name: Upload preprocessing artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: churn-preprocessed-dataset
+        path: preprocessing/churn-bigml-80_preprocessing/churn_processed.csv
+
     - name: Commit processed dataset
       run: |
         git config --global user.name "github-actions"
